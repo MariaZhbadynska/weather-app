@@ -4,22 +4,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .search-container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -32,15 +34,15 @@ body {
 }
 
 #btnGetData {
-    width: 80px;
-    height: 40px;
+    flex-shrink: 0;
+    padding: 10px 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #btnGetData:hover {
@@ -48,32 +50,73 @@ body {
 }
 
 .weather-container {
-    padding: 30px;
- 
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #fafafa;
 }
 
 .top, .bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 #img {
-    width: 30px;
+    width: 40px;
     height: auto;
     margin-right: 10px;
 }
 
 .bottom {
-    align-items: center;
     display: flex;
-    gap: 35px;
-
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 span {
     font-size: 16px;
+    color: #333;
 }
 
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+
+    #btnGetData {
+        width: 100%;
+    }
+
+    .top, .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    #img {
+        width: 30px;
+    }
+
+    span {
+        font-size: 13px;
+    }
+}
